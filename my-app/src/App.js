@@ -14,9 +14,9 @@ export const App = () => {
 
 	return (
 		<div className={styles.app}>
-			<Header name={name} age={age} email={email} phone={phone} />
+			<Header currentUser={name} />
 			<hr />
-			<UserBlock />
+			<UserBlock name={name} age={age} email={email} phone={phone} />
 		</div>
 	);
 };
