@@ -22,6 +22,18 @@ const getAnotherUserFromServer = () => ({
 export const App = () => {
 	const [userData, setUserData] = useState({});
 
+	const dispatch = (action) => {
+		const { type, payload } = action;
+
+		switch (type) {
+			case 'SET_USER_DATA': {
+				setUserData(payload);
+				break;
+			}
+			default:
+		}
+	};
+
 	useEffect(() => {
 		const userDataFromServer = getUserFromServer();
 
@@ -35,12 +47,12 @@ export const App = () => {
 	};
 
 	return (
-		<AppContext.Provider value={userData}>
+		<AppContext.Provider value={{ userData, dispatch }}>
 			<div className={styles.app}>
 				<Header />
 				<hr />
 				<UserBlock />
-				<button onClick={onUserChange}>Сменить пльзователя</button>
+				<button onClick={onUserChange}>Сменить пользователя</button>
 			</div>
 		</AppContext.Provider>
 	);
