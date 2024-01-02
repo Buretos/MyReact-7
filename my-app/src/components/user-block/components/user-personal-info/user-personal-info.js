@@ -11,12 +11,17 @@ export const UserPersonalInfo = () => {
 		dispatch({ type: 'SET_USER_DATA', payload: newUserData });
 	};
 
+	const onUserAgeDecrease = () => {
+		dispatch({ type: 'SET_USER_AGE', payload: 15 });
+	};
+
 	return (
 		<div>
 			<h3>Персональные данные</h3>
 			<div>Имя: {name}</div>
 			<div>Возраст: {age}</div>
-			<button onClick={onUserUpdate}>Обновить данные пльзователя</button>
+			<button onClick={onUserUpdate}>Обновить данные пользователя</button>
+			<button onClick={onUserAgeDecrease}>Уменьшить возраст пользователя</button>
 		</div>
 	);
 };
